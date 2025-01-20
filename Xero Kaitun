@@ -1,0 +1,57 @@
+local screenGui = Instance.new("ScreenGui")  
+screenGui.Parent = game.Players.LocalPlayer.PlayerGui  
+
+local textLabel = Instance.new("TextLabel")  
+textLabel.Size = UDim2.new(0, 300, 0, 100)  
+textLabel.Position = UDim2.new(0.5, -150, 0.5, -50)  
+textLabel.Text = "White đẹp trai"  
+textLabel.TextScaled = true  
+textLabel.Font = Enum.Font.Arcade  
+textLabel.TextColor3 = Color3.new(1, 0, 0)  
+textLabel.BackgroundTransparency = 1  
+textLabel.Parent = screenGui  
+
+local colors = {Color3.new(1, 0, 0), Color3.new(1, 0.5, 0), Color3.new(1, 1, 0), Color3.new(0, 1, 0), Color3.new(0, 1, 1), Color3.new(0, 0, 1), Color3.new(0.5, 0, 1)}
+local colorIndex = 1
+
+task.spawn(function()
+    while screenGui.Parent do
+        textLabel.TextColor3 = colors[colorIndex]
+        colorIndex = (colorIndex % #colors) + 1  
+        task.wait(0.2)  
+    end
+end)
+
+-- Max level, godhuman, cdk, sgt
+script_key = "" -- premium only, u can leave it blank if ur not
+getgenv().Shutdown = false -- Turn on if u are farming bulk accounts
+getgenv().Configs = {
+    ["Team"] = "Marines",
+    ["Gun Farm"] = false, -- Fast farm level, but farming melee is slow
+    ["FPS Boost"] = {
+        ["Enable"] = false,
+        ["FPS Cap"] = 30,
+    },
+    ["Farm Boss Drops"] = {
+        ["Enable"] = false,
+        ["When x2 Exp Expired"] = false
+    },
+    ["Hop"] = {
+        ["Enable"] = true,
+        ["Hop Find Tushita"] = true
+    },
+    ["Auto Collect Berry"] = false,
+    ["Auto Evo Race"] = true,
+    ["Awaken Fruit"] = false,
+    ["Rainbow Haki"] = true,
+    ["Hop Player Near"] = true,
+    ["Skull Guitar"] = true,
+    ["Find Fruit"] = true, -- Will find 1m+ fruit to unlock swan door to access third sea
+    ["Cursed Dual Katana"] = true,
+    ["Switch Melee"] = true,
+    ["Eat Fruit"] = "", -- leave blank for none, put the fruit name like this example: Smoke Fruit, T-Rex Fruit, ...
+    ["Snipe Fruit"] = "", -- leave blank for none, put the fruit name like this example: Smoke Fruit, T-Rex Fruit, ...
+    ["Lock Fragment"] = 0,
+    ["Buy Stuffs"] = true -- buso, geppo, soru, ken haki, ...
+}
+repeat task.wait() pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Xero2409/XeroHub/refs/heads/main/kaitun.lua"))() end) until getgenv().Check_Execute
